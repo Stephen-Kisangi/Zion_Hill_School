@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zion Hill School – Ngwata | For A Solid Foundation</title>
+
+  <!-- Preconnect for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.263.1/dist/umd/lucide.min.js"></script>
+
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- =============================================
+     TOP BAR
+     ============================================= -->
+<div class="top-bar" id="topBar">
+  <div class="top-bar__inner">
+    <div class="top-bar__left">
+      <span class="top-bar__item">
+        <i data-lucide="map-pin" class="tb-icon"></i>
+        Mlolongo Phase 3, Nairobi
+      </span>
+    </div>
+    <div class="top-bar__right">
+      <a href="tel:+254721301938" class="top-bar__link">
+        <i data-lucide="phone" class="tb-icon"></i>
+        0721 301938
+      </a>
+      <span class="top-bar__divider"></span>
+      <a href="https://wa.me/254721301938" target="_blank" class="top-bar__link top-bar__wa">
+        <i data-lucide="message-circle" class="tb-icon"></i>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     MAIN HEADER
+     ============================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-container">
+
+    <!-- LOGO -->
+    <a href="#home" class="logo-wrap" aria-label="Zion Hill School">
+      <div class="logo-emblem">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="26" fill="#0D3B66"/>
+          <circle cx="28" cy="28" r="26" fill="none" stroke="#F4B400" stroke-width="2"/>
+          <path d="M28 10L44 24V46H32V34H24V46H12V24L28 10Z" fill="white" opacity="0.95"/>
+          <rect x="23" y="34" width="10" height="12" rx="5" fill="#F4B400"/>
+          <rect x="14" y="25" width="8" height="7" rx="2" fill="#5DA9E9" opacity="0.9"/>
+          <rect x="34" y="25" width="8" height="7" rx="2" fill="#5DA9E9" opacity="0.9"/>
+          <circle cx="28" cy="17" r="3.5" fill="#F4B400"/>
+        </svg>
+        <div class="logo-glow"></div>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Zion Hill School</span>
+        <span class="logo-tagline">
+          <i data-lucide="star" class="tagline-star"></i>
+          For A Solid Foundation
+        </span>
+      </div>
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active">
+            <i data-lucide="home" class="nav-icon"></i>
+            <span>Home</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link">
+            <i data-lucide="shield-check" class="nav-icon"></i>
+            <span>About Us</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="#cbc" class="nav-link dropdown-trigger">
+            <i data-lucide="book-open" class="nav-icon"></i>
+            <span>CBC Curriculum</span>
+            <i data-lucide="chevron-down" class="nav-chevron"></i>
+            <span class="nav-dot"></span>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="#cbc" class="dropdown-item">
+                <span class="dd-icon-wrap"><i data-lucide="layers" class="dd-icon"></i></span>
+                <span class="dd-content"><strong>Overview</strong><small>Competency Based Curriculum</small></span>
+              </a>
+              <a href="#cbc" class="dropdown-item">
+                <span class="dd-icon-wrap"><i data-lucide="lightbulb" class="dd-icon"></i></span>
+                <span class="dd-content"><strong>Core Competencies</strong><small>The 6 pillars of CBC</small></span>
+              </a>
+              <a href="#cbc" class="dropdown-item">
+                <span class="dd-icon-wrap"><i data-lucide="award" class="dd-icon"></i></span>
+                <span class="dd-content"><strong>Why CBC?</strong><small>The future of learning in Kenya</small></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#classes" class="nav-link">
+            <i data-lucide="users" class="nav-icon"></i>
+            <span>Classes</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#admissions" class="nav-link">
+            <i data-lucide="clipboard-list" class="nav-icon"></i>
+            <span>Admissions</span>
+            <span class="nav-badge">Open</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#gallery" class="nav-link">
+            <i data-lucide="image" class="nav-icon"></i>
+            <span>Gallery</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">
+            <i data-lucide="map-pin" class="nav-icon"></i>
+            <span>Contact</span>
+            <span class="nav-dot"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="header-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search">
+        <i data-lucide="search"></i>
+        <span class="icon-btn-tooltip">Search</span>
+      </button>
+      <a href="#admissions" class="btn-enroll">
+        <i data-lucide="user-plus" class="btn-icon"></i>
+        <span class="btn-text">Enroll Now</span>
+        <span class="btn-shine"></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ham-line l1"></span>
+        <span class="ham-line l2"></span>
+        <span class="ham-line l3"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SEARCH PANEL -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-panel__inner">
+      <div class="search-box">
+        <i data-lucide="search" class="search-lead-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search classes, CBC, admissions…" autocomplete="off" />
+        <button class="search-clear" id="searchClear" aria-label="Clear"><i data-lucide="x"></i></button>
+      </div>
+      <button class="search-close-btn" id="searchClose"><i data-lucide="x"></i><span>Close</span></button>
+    </div>
+    <div class="search-suggestions">
+      <span class="suggestion-label">Quick links:</span>
+      <a href="#admissions" class="suggestion-chip" data-close-search><i data-lucide="clipboard-list"></i> Admissions</a>
+      <a href="#classes"    class="suggestion-chip" data-close-search><i data-lucide="users"></i> Classes</a>
+      <a href="#cbc"        class="suggestion-chip" data-close-search><i data-lucide="book-open"></i> CBC</a>
+      <a href="#contact"    class="suggestion-chip" data-close-search><i data-lucide="map-pin"></i> Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <div class="logo-wrap" style="pointer-events:none;">
+      <div class="logo-emblem" style="width:38px;height:38px;">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="26" fill="#0D3B66"/>
+          <circle cx="28" cy="28" r="26" fill="none" stroke="#F4B400" stroke-width="2"/>
+          <path d="M28 10L44 24V46H32V34H24V46H12V24L28 10Z" fill="white" opacity="0.95"/>
+          <rect x="23" y="34" width="10" height="12" rx="5" fill="#F4B400"/>
+          <circle cx="28" cy="17" r="3.5" fill="#F4B400"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Zion Hill School</span>
+        <span class="logo-tagline">For A Solid Foundation</span>
+      </div>
+    </div>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#home"       class="drawer-link active" data-close-drawer><span class="drawer-link__icon"><i data-lucide="home"></i></span><span>Home</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#about"      class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="shield-check"></i></span><span>About Us</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#cbc"        class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="book-open"></i></span><span>CBC Curriculum</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#classes"    class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="users"></i></span><span>Classes</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#admissions" class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="clipboard-list"></i></span><span>Admissions</span><span class="drawer-badge">Open</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#gallery"    class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="image"></i></span><span>Gallery</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+    <a href="#contact"    class="drawer-link" data-close-drawer><span class="drawer-link__icon"><i data-lucide="map-pin"></i></span><span>Contact</span><i data-lucide="chevron-right" class="drawer-arrow"></i></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="#admissions" class="btn-enroll btn-enroll--full" data-close-drawer>
+      <i data-lucide="user-plus" class="btn-icon"></i>
+      <span>Enroll Now — 2026</span>
+      <span class="btn-shine"></span>
+    </a>
+    <div class="drawer-contacts">
+      <a href="tel:+254721301938" class="drawer-contact-item">
+        <i data-lucide="phone"></i>
+        <div><strong>0721 301938</strong><small>Call us anytime</small></div>
+      </a>
+      <a href="https://wa.me/254721301938" target="_blank" class="drawer-contact-item drawer-contact-item--wa">
+        <i data-lucide="message-circle"></i>
+        <div><strong>WhatsApp Us</strong><small>Quick response</small></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- OVERLAY -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- =============================================
+     PAGE CONTENT
+     ============================================= -->
+<main id="mainContent">
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero__bg">
+      <div class="hero__bg-image"></div>
+      <div class="hero__bg-overlay"></div>
+      <div class="hero__bg-gradient"></div>
+      <div class="hero__shapes">
+        <div class="hero__shape hero__shape--1"></div>
+        <div class="hero__shape hero__shape--2"></div>
+        <div class="hero__shape hero__shape--3"></div>
+      </div>
+      <div class="hero__particles" id="heroParticles"></div>
+    </div>
+
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__badge anim-item">
+          <span class="hero__badge-dot"></span>
+          <i data-lucide="award" class="hero__badge-icon"></i>
+          CBC Accredited School · Mlolongo, Nairobi
+        </div>
+
+        <h1 class="hero__heading anim-item">
+          <span class="hero__heading-line1">Zion Hill School</span>
+          <span class="hero__heading-line2">
+            <span class="hero__heading-accent">Ngwata</span>
+          </span>
+        </h1>
+
+        <p class="hero__sub anim-item">
+          Nurturing <strong>Competence</strong>, <strong>Creativity</strong> &amp; <strong>Character</strong>
+          under the CBC Framework
+        </p>
+
+        <div class="hero__location anim-item">
+          <i data-lucide="map-pin" class="hero__loc-icon"></i>
+          Located in Mlolongo Phase 3, Nairobi
+        </div>
+
+        <div class="hero__ctas anim-item">
+          <a href="#admissions" class="hero__cta hero__cta--primary">
+            <i data-lucide="user-plus"></i>
+            <span>Enroll Now — 2026</span>
+            <span class="hero__cta-shine"></span>
+          </a>
+          <a href="#contact" class="hero__cta hero__cta--secondary">
+            <i data-lucide="phone"></i>
+            <span>Contact Us</span>
+          </a>
+        </div>
+
+        <div class="hero__stats anim-item">
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-count="9">9</span>
+            <span class="hero__stat-label">Grade Levels</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-count="6">6</span>
+            <span class="hero__stat-label">CBC Competencies</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">100+</span>
+            <span class="hero__stat-label">Happy Families</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__cards">
+        <div class="hero__card anim-item">
+          <div class="hero__card-icon"><i data-lucide="book-open"></i></div>
+          <div class="hero__card-text"><strong>CBC Focused</strong><span>Kenya's competency-based curriculum</span></div>
+        </div>
+        <div class="hero__card anim-item">
+          <div class="hero__card-icon hero__card-icon--gold"><i data-lucide="shield-check"></i></div>
+          <div class="hero__card-text"><strong>Safe Environment</strong><span>Secure & nurturing campus</span></div>
+        </div>
+        <div class="hero__card anim-item">
+          <div class="hero__card-icon hero__card-icon--light"><i data-lucide="bus"></i></div>
+          <div class="hero__card-text"><strong>Transport Available</strong><span>School bus service provided</span></div>
+        </div>
+        <div class="hero__card anim-item">
+          <div class="hero__card-icon hero__card-icon--green"><i data-lucide="users"></i></div>
+          <div class="hero__card-text"><strong>Qualified Teachers</strong><span>Caring & experienced staff</span></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="hero__scroll">
+      <span>Discover More</span>
+      <div class="hero__scroll-mouse"><div class="hero__scroll-dot"></div></div>
+    </a>
+  </section>
+
+  <!-- PLACEHOLDER SECTIONS -->
+  <section id="about" style="min-height:60vh;background:#f9fafb;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">About Us — Coming Next</h2>
+  </section>
+  <section id="cbc" style="min-height:60vh;background:#eaf4ff;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">CBC Curriculum — Coming Next</h2>
+  </section>
+  <section id="classes" style="min-height:60vh;background:#fff;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Classes Section</h2>
+  </section>
+  <section id="admissions" style="min-height:60vh;background:#f9fafb;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Admissions Section</h2>
+  </section>
+  <section id="gallery" style="min-height:60vh;background:#eaf4ff;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Gallery Section</h2>
+  </section>
+  <section id="contact" style="min-height:60vh;background:#fff;display:flex;align-items:center;justify-content:center;">
+    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Contact Section</h2>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
