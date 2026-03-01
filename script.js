@@ -291,4 +291,150 @@
     updateHeaderHeight();
   });
 
+
+/* =========================================================
+   SECTIONS 5–8 JAVASCRIPT
+   Add this to the BOTTOM of your existing script.js
+   (paste it just before the final closing }) of the IIFE)
+   ========================================================= */
+
+  /* =========================================================
+     TESTIMONIALS SLIDER
+     ========================================================= */
+  function initTestiSlider() {
+    const track  = document.getElementById('testiTrack');
+    const dotsEl = document.getElementById('testiDots');
+    const prev   = document.getElementById('testiPrev');
+    const next   = document.getElementById('testiNext');
+    if (!track) return;
+
+    const cards       = track.querySelectorAll('.testi__card');
+    const total       = cards.length;
+    let current       = 0;
+    let perView       = getPerView();
+    let maxIndex      = Math.max(0, total - perView);
+    let autoTimer;
+
+    function getPerView() {
+      return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    }
+
+    /* Build dots */
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      const pages = Math.ceil(total / perView);
+      for (let i = 0; i < pages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'testi__dot' + (i === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        btn.addEventListener('click', () => goTo(i * perView));
+        dotsEl.appendChild(btn);
+      }
+    }
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, maxIndex));
+      const cardWidth   = cards[0].offsetWidth;
+      const gap         = 24; /* matches CSS gap: 1.5rem */
+      track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+
+      /* Update dots */
+      const dots = dotsEl.querySelectorAll('.testi__dot');
+      const activePage = Math.floor(current / perView);
+      dots.forEach((d, i) => d.classList.toggle('active', i === activePage));
+    }
+
+    function goPrev() { goTo(current - perView); resetAuto(); }
+    function goNext() {
+      const next = current + perView;
+      goTo(next > maxIndex ? 0 : next);
+      resetAuto();
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        const next = current + perView;
+        goTo(next > maxIndex ? 0 : next);
+      }, 5000);
+    }
+
+    prev && prev.addEventListener('click', goPrev);
+    next && next.addEventListener('click', goNext);
+
+    /* Touch swipe */
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
+    });
+
+    /* Recalculate on resize */
+    window.addEventListener('resize', () => {
+      perView  = getPerView();
+      maxIndex = Math.max(0, total - perView);
+      current  = Math.min(current, maxIndex);
+      buildDots();
+      goTo(current);
+    }, { passive: true });
+
+    buildDots();
+    resetAuto();
+  }
+
+  /* =========================================================
+     ADMISSIONS FORM — sends via WhatsApp
+     ========================================================= */
+  function initAdmissionsForm() {
+    const form = document.getElementById('admissionsForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const parentName = form.parentName?.value.trim();
+      const phone      = form.phone?.value.trim();
+      const childName  = form.childName?.value.trim();
+      const grade      = form.gradeApply?.value;
+      const message    = form.message?.value.trim();
+
+      /* Basic validation */
+      if (!parentName || !phone || !childName || !grade) {
+        const firstEmpty = form.querySelector('input:invalid, select:invalid');
+        if (firstEmpty) firstEmpty.focus();
+        return;
+      }
+
+      /* Build WhatsApp message */
+      const wa = [
+        `*Zion Hill School — Admissions Enquiry*`,
+        ``,
+        `👤 *Parent:* ${parentName}`,
+        `📞 *Phone:* ${phone}`,
+        `🧒 *Child:* ${childName}`,
+        `🎓 *Grade:* ${grade}`,
+        message ? `💬 *Message:* ${message}` : '',
+      ].filter(Boolean).join('\n');
+
+      const url = `https://wa.me/254721301938?text=${encodeURIComponent(wa)}`;
+      window.open(url, '_blank');
+    });
+  }
+
+  /* =========================================================
+     FOOTER YEAR
+     ========================================================= */
+  function initFooterYear() {
+    const el = document.getElementById('footerYear');
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  /* Init all new sections */
+  document.addEventListener('DOMContentLoaded', () => {
+    initTestiSlider();
+    initAdmissionsForm();
+    initFooterYear();
+  });
+
 })();

@@ -716,17 +716,601 @@
 </section>
 
 
+<!-- =============================================
+     SECTION 5: TESTIMONIALS
+     PLACEMENT: Replace the placeholder <section id="admissions"> in index.html
+     Wait — place this BEFORE admissions. Insert after classes section.
+     ============================================= -->
+<section id="testimonials" class="testi">
+  <div class="testi__container">
+
+    <div class="testi__header anim-item">
+      <span class="section-label">
+        <i data-lucide="message-square-heart" class="section-label__icon"></i>
+        Parent Voices
+      </span>
+      <h2 class="testi__title">
+        What Families Say About<br/>
+        <span class="testi__title-accent">Zion Hill School</span>
+      </h2>
+    </div>
+
+    <!-- Slider track -->
+    <div class="testi__slider-wrap">
+      <div class="testi__track" id="testiTrack">
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"My daughter joined Zion Hill in PP1 and I have seen remarkable growth. The teachers know every child personally. She wakes up excited to go to school every single day!"</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--1">MN</div>
+            <div class="testi__author-info">
+              <strong>Mary Njoki</strong>
+              <span>Parent — PP2 &amp; Grade 3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"What stands out is how safe and secure the school is. As a working parent, knowing my son is in a fenced, supervised school gives me total peace of mind every morning."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--2">JO</div>
+            <div class="testi__author-info">
+              <strong>James Otieno</strong>
+              <span>Parent — Grade 4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"The CBC approach here is genuine — it is not just a label. My children do real projects, present work, and come home talking about what they discovered. Real learning, not cramming."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--3">FK</div>
+            <div class="testi__author-info">
+              <strong>Faith Kamau</strong>
+              <span>Parent — Grade 2 &amp; Grade 5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"The school bus service has been a blessing. Reliable, punctual and the driver is very careful with the children. We live 4km away and it has never been a problem."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--4">PM</div>
+            <div class="testi__author-info">
+              <strong>Peter Mwangi</strong>
+              <span>Parent — Grade 1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"Communication with the teachers is excellent. We get updates, we are invited for open days, and the head teacher is always available. You feel like a true partner in your child's education."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--5">GW</div>
+            <div class="testi__author-info">
+              <strong>Grace Wambui</strong>
+              <span>Parent — PP1 &amp; Grade 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi__card">
+          <div class="testi__stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+            <i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="testi__quote">"My son was shy when he joined. Within two terms he was singing in the school concert, making friends, and leading a class project. The environment really builds confidence."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--6">DK</div>
+            <div class="testi__author-info">
+              <strong>Daniel Kipkoech</strong>
+              <span>Parent — Grade 3</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.testi__track -->
+
+      <!-- Prev / Next arrows -->
+      <button class="testi__arrow testi__arrow--prev" id="testiPrev" aria-label="Previous">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="testi__arrow testi__arrow--next" id="testiNext" aria-label="Next">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div><!-- /.testi__slider-wrap -->
+
+    <!-- Dots -->
+    <div class="testi__dots" id="testiDots"></div>
+
+  </div>
+</section>
 
 
-  <section id="admissions" style="min-height:60vh;background:#f9fafb;display:flex;align-items:center;justify-content:center;">
-    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Admissions Section</h2>
-  </section>
-  <section id="gallery" style="min-height:60vh;background:#eaf4ff;display:flex;align-items:center;justify-content:center;">
-    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Gallery Section</h2>
-  </section>
-  <section id="contact" style="min-height:60vh;background:#fff;display:flex;align-items:center;justify-content:center;">
-    <h2 style="color:#0D3B66;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;">Contact Section</h2>
-  </section>
+
+
+
+
+
+<!-- =============================================
+     SECTION 6: GALLERY
+     PLACEMENT: Replace the placeholder <section id="gallery"> in index.html
+     ============================================= -->
+<section id="gallery" class="gallery">
+  <div class="gallery__container">
+
+    <div class="gallery__header anim-item">
+      <span class="section-label">
+        <i data-lucide="image" class="section-label__icon"></i>
+        School Life
+      </span>
+      <h2 class="gallery__title">
+        Glimpses of Life at<br/>
+        <span class="gallery__title-accent">Zion Hill</span>
+      </h2>
+      <p class="gallery__subtitle">
+        Every day is full of learning, laughter and growth. Here is a peek into our vibrant school community.
+      </p>
+    </div>
+
+    <!-- Masonry-style grid -->
+    <div class="gallery__grid">
+
+      <div class="gallery__item gallery__item--wide anim-item">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=75" alt="Children learning in classroom" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Classroom Learning</span>
+        </div>
+      </div>
+
+      <div class="gallery__item anim-item">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=75" alt="Children playing outdoors" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Outdoor Play</span>
+        </div>
+      </div>
+
+      <div class="gallery__item anim-item">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=75" alt="Reading time" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Story Time</span>
+        </div>
+      </div>
+
+      <div class="gallery__item anim-item">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=75" alt="Arts and crafts" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Arts &amp; Crafts</span>
+        </div>
+      </div>
+
+      <div class="gallery__item gallery__item--tall anim-item">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=75" alt="School building" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Our Campus</span>
+        </div>
+      </div>
+
+      <div class="gallery__item anim-item">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=75" alt="Science activity" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Science Discovery</span>
+        </div>
+      </div>
+
+      <div class="gallery__item gallery__item--wide anim-item">
+        <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=800&q=75" alt="School sports" loading="lazy"/>
+        <div class="gallery__item-overlay">
+          <span>Sports &amp; PE</span>
+        </div>
+      </div>
+
+    </div><!-- /.gallery__grid -->
+
+    <div class="gallery__footer anim-item">
+      <p>📸 Follow us for more updates from our school community</p>
+      <a href="https://wa.me/254721301938" target="_blank" class="classes__btn classes__btn--outline">
+        <i data-lucide="message-circle"></i>
+        WhatsApp for More Photos
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     SECTION 7: ADMISSIONS
+     PLACEMENT: Replace the placeholder <section id="admissions"> in index.html
+     ============================================= -->
+<section id="admissions" class="admissions">
+  <div class="admissions__bg-shape"></div>
+
+  <div class="admissions__container">
+
+    <!-- Left: Info -->
+    <div class="admissions__info">
+      <span class="section-label section-label--white anim-item">
+        <i data-lucide="clipboard-list" class="section-label__icon"></i>
+        Admissions 2026
+      </span>
+      <h2 class="admissions__title anim-item">
+        Enroll Your Child<br/>
+        <span class="admissions__title-accent">Today</span>
+      </h2>
+      <p class="admissions__desc anim-item">
+        We are currently enrolling for the 2026 academic year across all levels
+        from Play Group to Grade 6. Spaces are limited — secure your child's place early.
+      </p>
+
+      <!-- Steps -->
+      <div class="admissions__steps">
+
+        <div class="admissions__step anim-item">
+          <div class="admissions__step-num">1</div>
+          <div class="admissions__step-body">
+            <strong>Call or WhatsApp Us</strong>
+            <span>Reach out on <a href="tel:+254721301938">0721 301938</a> to express interest and ask any questions</span>
+          </div>
+        </div>
+
+        <div class="admissions__step anim-item">
+          <div class="admissions__step-num">2</div>
+          <div class="admissions__step-body">
+            <strong>Visit the School</strong>
+            <span>Come and tour the campus, meet the teachers, and see your child's future classroom</span>
+          </div>
+        </div>
+
+        <div class="admissions__step anim-item">
+          <div class="admissions__step-num">3</div>
+          <div class="admissions__step-body">
+            <strong>Fill in the Form</strong>
+            <span>Complete a simple registration form — we make the paperwork easy and stress-free</span>
+          </div>
+        </div>
+
+        <div class="admissions__step anim-item">
+          <div class="admissions__step-num">4</div>
+          <div class="admissions__step-body">
+            <strong>Welcome to Zion Hill!</strong>
+            <span>Receive your admission letter, uniform guide, and school calendar</span>
+          </div>
+        </div>
+
+      </div><!-- /.admissions__steps -->
+
+      <!-- What to bring -->
+      <div class="admissions__docs anim-item">
+        <p class="admissions__docs-label"><i data-lucide="file-text"></i> Documents Required</p>
+        <ul>
+          <li><i data-lucide="check"></i> Child's birth certificate</li>
+          <li><i data-lucide="check"></i> Parent / guardian ID copy</li>
+          <li><i data-lucide="check"></i> Previous school report (Grade 1 and above)</li>
+          <li><i data-lucide="check"></i> Passport photos (2)</li>
+        </ul>
+      </div>
+
+    </div><!-- /.admissions__info -->
+
+    <!-- Right: Quick contact form -->
+    <div class="admissions__form-wrap anim-item">
+      <div class="admissions__form-card">
+        <h3 class="admissions__form-title">
+          <i data-lucide="send"></i>
+          Send Us a Message
+        </h3>
+        <p class="admissions__form-sub">We reply within a few hours during school days</p>
+
+        <form class="admissions__form" id="admissionsForm" novalidate>
+
+          <div class="form-group">
+            <label for="parentName">Parent / Guardian Name *</label>
+            <div class="form-input-wrap">
+              <i data-lucide="user" class="form-icon"></i>
+              <input type="text" id="parentName" name="parentName" placeholder="e.g. Mary Njoki" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <div class="form-input-wrap">
+              <i data-lucide="phone" class="form-icon"></i>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 0721 301938" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="childName">Child's Name *</label>
+            <div class="form-input-wrap">
+              <i data-lucide="baby" class="form-icon"></i>
+              <input type="text" id="childName" name="childName" placeholder="e.g. John Mwangi" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gradeApply">Grade Applying For *</label>
+            <div class="form-input-wrap form-input-wrap--select">
+              <i data-lucide="graduation-cap" class="form-icon"></i>
+              <select id="gradeApply" name="gradeApply" required>
+                <option value="" disabled selected>Select a grade…</option>
+                <option>Play Group</option>
+                <option>Pre-Primary 1 (PP1)</option>
+                <option>Pre-Primary 2 (PP2)</option>
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+                <option>Grade 4</option>
+                <option>Grade 5</option>
+                <option>Grade 6</option>
+              </select>
+              <i data-lucide="chevron-down" class="form-select-arrow"></i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Any Questions? <span class="form-optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="3" placeholder="Ask us anything about fees, transport, curriculum…"></textarea>
+          </div>
+
+          <button type="submit" class="admissions__submit" id="formSubmit">
+            <i data-lucide="send" class="btn-icon"></i>
+            <span>Send via WhatsApp</span>
+            <span class="btn-shine"></span>
+          </button>
+
+          <p class="admissions__form-note">
+            <i data-lucide="shield-check"></i>
+            Your information is private and will only be used to contact you about admission.
+          </p>
+
+        </form>
+      </div>
+    </div>
+
+  </div><!-- /.admissions__container -->
+</section>
+
+
+
+ <!-- =============================================
+     SECTION 8: CONTACT
+     PLACEMENT: Replace the placeholder <section id="contact"> in index.html
+     ============================================= -->
+<section id="contact" class="contact">
+  <div class="contact__container">
+
+    <div class="contact__header anim-item">
+      <span class="section-label">
+        <i data-lucide="map-pin" class="section-label__icon"></i>
+        Find Us
+      </span>
+      <h2 class="contact__title">
+        We Are Right Here in<br/>
+        <span class="contact__title-accent">Mlolongo Phase 3</span>
+      </h2>
+    </div>
+
+    <div class="contact__body">
+
+      <!-- Left: contact details -->
+      <div class="contact__details">
+
+        <div class="contact__detail-item anim-item">
+          <div class="contact__detail-icon contact__detail-icon--blue">
+            <i data-lucide="map-pin"></i>
+          </div>
+          <div>
+            <strong>Our Location</strong>
+            <span>Mlolongo Phase 3, Machakos County<br/>Near Nairobi — Easy access from the SGR road</span>
+          </div>
+        </div>
+
+        <div class="contact__detail-item anim-item">
+          <div class="contact__detail-icon contact__detail-icon--gold">
+            <i data-lucide="phone"></i>
+          </div>
+          <div>
+            <strong>Call Us</strong>
+            <a href="tel:+254721301938">0721 301938</a>
+            <span>Monday – Friday, 7:30am – 5:00pm</span>
+          </div>
+        </div>
+
+        <div class="contact__detail-item anim-item">
+          <div class="contact__detail-icon contact__detail-icon--green">
+            <i data-lucide="message-circle"></i>
+          </div>
+          <div>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/254721301938" target="_blank">Chat with us on WhatsApp</a>
+            <span>Fastest way to reach us — quick replies</span>
+          </div>
+        </div>
+
+        <div class="contact__detail-item anim-item">
+          <div class="contact__detail-icon contact__detail-icon--teal">
+            <i data-lucide="clock"></i>
+          </div>
+          <div>
+            <strong>School Hours</strong>
+            <span>Mon – Fri: 7:30am – 4:30pm<br/>Saturday: Closed &nbsp;·&nbsp; Sunday: Closed</span>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="contact__quick-actions anim-item">
+          <a href="tel:+254721301938" class="contact__quick-btn contact__quick-btn--call">
+            <i data-lucide="phone"></i>
+            Call Now
+          </a>
+          <a href="https://wa.me/254721301938?text=Hello%20Zion%20Hill%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" class="contact__quick-btn contact__quick-btn--wa">
+            <i data-lucide="message-circle"></i>
+            WhatsApp Us
+          </a>
+          <a href="#admissions" class="contact__quick-btn contact__quick-btn--enroll">
+            <i data-lucide="user-plus"></i>
+            Enroll
+          </a>
+        </div>
+
+      </div><!-- /.contact__details -->
+
+      <!-- Right: embedded map -->
+      <div class="contact__map-wrap anim-item">
+        <div class="contact__map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d36.97!3d-1.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMlolongo+Phase+3!5e0!3m2!1sen!2ske!4v1"
+            width="100%" height="100%"
+            style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Zion Hill School Ngwata location map">
+          </iframe>
+        </div>
+        <div class="contact__map-badge">
+          <i data-lucide="map-pin"></i>
+          Mlolongo Phase 3, Nairobi
+        </div>
+      </div>
+
+    </div><!-- /.contact__body -->
+
+  </div>
+</section>
+
+<!-- =============================================
+     FLOATING WHATSAPP BUTTON
+     ============================================= -->
+<a href="https://wa.me/254721301938?text=Hello%20Zion%20Hill%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions."
+   target="_blank"
+   class="whatsapp-float"
+   aria-label="Chat on WhatsApp">
+  <i data-lucide="message-circle" class="whatsapp-float__icon"></i>
+  <span class="whatsapp-float__label">Chat with us</span>
+  <span class="whatsapp-float__pulse"></span>
+</a>
+
+<!-- =============================================
+     FOOTER
+     PLACEMENT: Add right before </main> closing tag
+     ============================================= -->
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__container">
+
+      <!-- Brand col -->
+      <div class="footer__col footer__col--brand">
+        <div class="footer__logo">
+          <div class="logo-emblem" style="width:44px;height:44px;flex-shrink:0;">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="26" fill="#0D3B66"/>
+              <circle cx="28" cy="28" r="26" fill="none" stroke="#F4B400" stroke-width="2"/>
+              <path d="M28 10L44 24V46H32V34H24V46H12V24L28 10Z" fill="white" opacity="0.95"/>
+              <rect x="23" y="34" width="10" height="12" rx="5" fill="#F4B400"/>
+              <circle cx="28" cy="17" r="3.5" fill="#F4B400"/>
+            </svg>
+          </div>
+          <div>
+            <span class="footer__logo-name">Zion Hill School</span>
+            <span class="footer__logo-tag">For A Solid Foundation</span>
+          </div>
+        </div>
+        <p class="footer__tagline">
+          Nurturing competent, creative and character-filled children through CBC
+          in the heart of Mlolongo, Nairobi.
+        </p>
+        <div class="footer__social">
+          <a href="https://wa.me/254721301938" target="_blank" class="footer__social-link footer__social-link--wa" aria-label="WhatsApp">
+            <i data-lucide="message-circle"></i>
+          </a>
+          <a href="tel:+254721301938" class="footer__social-link footer__social-link--call" aria-label="Call us">
+            <i data-lucide="phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="#home"><i data-lucide="chevron-right"></i>Home</a></li>
+          <li><a href="#about"><i data-lucide="chevron-right"></i>About Us</a></li>
+          <li><a href="#cbc"><i data-lucide="chevron-right"></i>CBC Curriculum</a></li>
+          <li><a href="#classes"><i data-lucide="chevron-right"></i>Our Classes</a></li>
+          <li><a href="#gallery"><i data-lucide="chevron-right"></i>Gallery</a></li>
+          <li><a href="#contact"><i data-lucide="chevron-right"></i>Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Classes -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Our Classes</h4>
+        <ul class="footer__links">
+          <li><a href="#classes"><i data-lucide="chevron-right"></i>Play Group (Age 3–4)</a></li>
+          <li><a href="#classes"><i data-lucide="chevron-right"></i>PP1 &amp; PP2</a></li>
+          <li><a href="#classes"><i data-lucide="chevron-right"></i>Grade 1 – Grade 3</a></li>
+          <li><a href="#classes"><i data-lucide="chevron-right"></i>Grade 4 – Grade 6</a></li>
+          <li><a href="#admissions" class="footer__link-badge"><i data-lucide="chevron-right"></i>Admissions Open <span>2026</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Contact col -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Get In Touch</h4>
+        <ul class="footer__contact-list">
+          <li>
+            <i data-lucide="map-pin"></i>
+            <span>Mlolongo Phase 3,<br/>Machakos County, Kenya</span>
+          </li>
+          <li>
+            <i data-lucide="phone"></i>
+            <a href="tel:+254721301938">0721 301938</a>
+          </li>
+          <li>
+            <i data-lucide="message-circle"></i>
+            <a href="https://wa.me/254721301938" target="_blank">WhatsApp Us</a>
+          </li>
+          <li>
+            <i data-lucide="clock"></i>
+            <span>Mon–Fri: 7:30am – 4:30pm</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer bottom bar -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-inner">
+      <p>&copy; <span id="footerYear"></span> Zion Hill School Ngwata. All rights reserved.</p>
+      <p class="footer__bottom-tagline">
+        <i data-lucide="heart" class="footer__heart"></i>
+        Built with love for every child's future
+      </p>
+    </div>
+  </div>
+</footer>
 
 </main>
 
