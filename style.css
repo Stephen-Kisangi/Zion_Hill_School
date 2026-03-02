@@ -267,13 +267,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius:var(--radius-sm); flex-shrink:0;
   /* Always visible: deep-blue icon on tinted background with border */
   color:var(--deep-blue);
-  background:var(--sky-tint);
+  background:var(--deep-blue);
   border:1.5px solid var(--border);
   transition:background 0.25s, color 0.25s, transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .icon-btn svg { width:17px; height:17px; }
 .icon-btn:hover {
-  background:var(--deep-blue); color:#fff;
+  background:var(--deep-blue); color:#ffffff;
   border-color:var(--deep-blue);
   box-shadow:0 4px 14px rgba(13,59,102,0.2);
   transform:translateY(-1px);
@@ -771,7 +771,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ≤480px — top bar: icon-only for WhatsApp to prevent any overflow */
 @media (max-width:480px) {
   .top-bar__inner  { padding:0 0.75rem; }
-  .top-bar__wa .tb-text { display:none; }    /* hide "WhatsApp" word */
+  .top-bar__wa .tb-text { display:contents; }    /* hide "WhatsApp" word */
   .top-bar__item   { font-size:0.68rem; }
   .top-bar__link   { font-size:0.68rem; padding:0.12rem 0.4rem; gap:0.3rem; }
   .btn-enroll      { padding:0.44rem 0.7rem; font-size:0.74rem; }
