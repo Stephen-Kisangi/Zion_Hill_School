@@ -986,6 +986,8 @@
         <p class="admissions__form-sub">We reply within a few hours during school days</p>
 
         <form class="admissions__form" id="admissionsForm" novalidate>
+
+          <!-- Error banner -->
           <div id="formErrorBanner" style="display:none;"></div>
 
           <div class="form-group">
@@ -1052,123 +1054,266 @@
       </div>
     </div>
 
+    <!-- ── Concerns / Complaints toggle ── -->
+    <div class="admissions__concerns anim-item" style="margin-top:2rem;">
+      <button type="button" id="concernsToggle" class="concerns__toggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Have a concern, question or complaint?
+        <svg id="concernsChevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.3s;"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <div id="concernsPanel" style="display:none;margin-top:1rem;">
+        <div class="admissions__form-card">
+          <h3 class="admissions__form-title" style="font-size:1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Send Us Your Concern
+          </h3>
+          <p class="admissions__form-sub">We take every concern seriously and respond within 24 hours</p>
+
+          <form id="concernsForm" novalidate>
+            <div id="concernsErrorBanner" style="display:none;"></div>
+
+            <div class="form-group">
+              <label for="cName">Your Name *</label>
+              <div class="form-input-wrap">
+                <i data-lucide="user" class="form-icon"></i>
+                <input type="text" id="cName" name="cName" placeholder="e.g. Mary Njoki" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cPhone">Phone Number *</label>
+              <div class="form-input-wrap">
+                <i data-lucide="phone" class="form-icon"></i>
+                <input type="tel" id="cPhone" name="cPhone" placeholder="e.g. 0721 301938" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cType">Type of Message *</label>
+              <div class="form-input-wrap form-input-wrap--select">
+                <i data-lucide="tag" class="form-icon"></i>
+                <select id="cType" name="cType" required>
+                  <option value="" disabled selected>Select type…</option>
+                  <option>General Enquiry</option>
+                  <option>Concern about my child</option>
+                  <option>Complaint</option>
+                  <option>Feedback / Suggestion</option>
+                  <option>Fee Related</option>
+                  <option>Other</option>
+                </select>
+                <i data-lucide="chevron-down" class="form-select-arrow"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cMessage">Your Message *</label>
+              <textarea id="cMessage" name="cMessage" rows="4" placeholder="Describe your concern or question in detail…" required></textarea>
+            </div>
+
+            <button type="submit" class="admissions__submit" id="concernsSubmit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Send via WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /.admissions__container -->
 </section>
 
 <script>
+/* ================================================================
+   ADMISSIONS FORM — WhatsApp
+   ================================================================ */
 (function() {
   var form   = document.getElementById('admissionsForm');
   var banner = document.getElementById('formErrorBanner');
   if (!form || !banner) return;
 
-  function showError(msg) {
-    banner.innerHTML =
-      '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">' +
-        '<span style="flex:1;min-width:0;">&#9888; <strong>Zion Hill School:</strong> ' + msg + '</span>' +
-        '<button type="button" onclick="this.parentNode.parentNode.style.display=\'none\'" ' +
-          'style="background:rgba(255,255,255,0.3);border:2px solid #fff;color:#fff;' +
-          'font-weight:800;font-size:13px;padding:3px 14px;border-radius:5px;cursor:pointer;white-space:nowrap;flex-shrink:0;">' +
-          'OK' +
-        '</button>' +
+  function showErr(b, msg) {
+    b.innerHTML =
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">' +
+        '<span style="flex:1;">&#9888; <strong>Zion Hill School:</strong> ' + msg + '</span>' +
+        '<button type="button" onclick="this.closest(\'[id$=ErrorBanner]\').style.display=\'none\'" ' +
+          'style="background:rgba(255,255,255,0.25);border:2px solid #fff;color:#fff;font-weight:800;' +
+          'font-size:12px;padding:2px 12px;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">OK</button>' +
       '</div>';
-    banner.style.cssText =
-      'display:block !important;' +
-      'margin:0 0 18px 0;' +
-      'padding:12px 14px;' +
-      'background:#dc2626;' +
-      'color:#fff;' +
-      'font-size:14px;' +
-      'font-weight:600;' +
-      'line-height:1.6;' +
-      'border-radius:8px;' +
-      'box-shadow:0 3px 12px rgba(220,38,38,0.35);' +
-      'word-break:break-word;';
+    b.style.cssText = 'display:block;margin:0 0 16px;padding:12px 14px;background:#dc2626;color:#fff;' +
+      'font-size:14px;font-weight:600;line-height:1.6;border-radius:8px;box-shadow:0 3px 12px rgba(220,38,38,0.3);word-break:break-word;';
   }
 
-  function hideError() {
-    banner.style.display = 'none';
+  function validName(v) {
+    var p = v.trim().split(/\s+/);
+    return p.length >= 2 && p.every(function(w){ return w.length >= 2; });
   }
 
-  function validName(val) {
-    var parts = val.trim().split(/\s+/);
-    return parts.length >= 2 && parts.every(function(p) { return p.length >= 2; });
+  function buildStamp() {
+    var now = new Date();
+    var D = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var M = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var h = now.getHours(), mn = now.getMinutes().toString().padStart(2,'0');
+    var ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+    return D[now.getDay()] + ', ' + now.getDate() + ' ' + M[now.getMonth()] + ' ' + now.getFullYear() + ' - ' + h + ':' + mn + ' ' + ap;
   }
 
   form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    hideError();
-    form.querySelectorAll('.form-group').forEach(function(g) { g.classList.remove('form-error'); });
+    e.preventDefault(); e.stopPropagation();
+    banner.style.display = 'none';
+    form.querySelectorAll('.form-group').forEach(function(g){ g.classList.remove('form-error'); });
 
-    var parentName = (form.parentName.value || '').trim();
-    var phone      = (form.phone.value      || '').trim();
-    var childName  = (form.childName.value  || '').trim();
-    var grade      = (form.gradeApply.value || '').trim();
-    var msg        = (form.message.value    || '').trim();
-    var phoneClean = phone.replace(/\s+/g, '');
+    var pName  = (form.parentName.value||'').trim();
+    var phone  = (form.phone.value||'').trim();
+    var cName  = (form.childName.value||'').trim();
+    var grade  = (form.gradeApply.value||'').trim();
+    var msg    = (form.message.value||'').trim();
+    var ph     = phone.replace(/\s+/g,'');
 
-    var errors = [], errorMsg = '';
+    var errs = [], emsg = '';
+    if (!pName)                          { errs.push('parentName'); emsg = 'Parent name is required.'; }
+    else if (!validName(pName))          { errs.push('parentName'); emsg = 'Enter full name — first and last. e.g. Mary Njoki'; }
+    if (!phone)                          { errs.push('phone'); if(!emsg) emsg = 'Phone number is required.'; }
+    else if (!/^(07|01)\d{8}$/.test(ph)){ errs.push('phone'); if(!emsg) emsg = 'Valid Kenyan number starting with 07 or 01. e.g. 0721 301938'; }
+    if (!cName)                          { errs.push('childName'); if(!emsg) emsg = "Child name is required."; }
+    else if (!validName(cName))          { errs.push('childName'); if(!emsg) emsg = "Enter child full name — first and last. e.g. John Mwangi"; }
+    if (!grade)                          { errs.push('gradeApply'); if(!emsg) emsg = 'Please select a grade.'; }
 
-    if (!parentName) {
-      errors.push('parentName'); errorMsg = 'Parent name is required.';
-    } else if (!validName(parentName)) {
-      errors.push('parentName'); errorMsg = 'Enter full name — first and last name. e.g. Mary Njoki';
-    }
-    if (!phone) {
-      errors.push('phone'); if (!errorMsg) errorMsg = 'Phone number is required.';
-    } else if (!/^(07|01)\d{8}$/.test(phoneClean)) {
-      errors.push('phone'); if (!errorMsg) errorMsg = 'Enter a valid Kenyan number starting with 07 or 01. e.g. 0721 301938';
-    }
-    if (!childName) {
-      errors.push('childName'); if (!errorMsg) errorMsg = "Child name is required.";
-    } else if (!validName(childName)) {
-      errors.push('childName'); if (!errorMsg) errorMsg = "Enter child full name — first and last name. e.g. John Mwangi";
-    }
-    if (!grade) {
-      errors.push('gradeApply'); if (!errorMsg) errorMsg = 'Please select a grade.';
-    }
-
-    if (errors.length) {
-      errors.forEach(function(id) {
-        var el = document.getElementById(id);
-        var grp = el && el.closest('.form-group');
-        if (grp) grp.classList.add('form-error');
-      });
-      document.getElementById(errors[0]).focus();
-      showError(errorMsg);
+    if (errs.length) {
+      errs.forEach(function(id){ var el=document.getElementById(id); var g=el&&el.closest('.form-group'); if(g) g.classList.add('form-error'); });
+      document.getElementById(errs[0]).focus();
+      showErr(banner, emsg);
       return;
     }
 
-    /* Timestamp */
-    var now = new Date();
-    var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    var h = now.getHours(), mn = now.getMinutes().toString().padStart(2,'0');
-    var ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
-    var stamp = DAYS[now.getDay()] + ', ' + now.getDate() + ' ' + MONTHS[now.getMonth()] + ' ' + now.getFullYear() + ' - ' + h + ':' + mn + ' ' + ampm;
-
-    /* WhatsApp message */
-    var div = '==========================';
-    var text = '*ZION HILL SCHOOL*\n*ADMISSIONS ENQUIRY*\n' + div + '\n\n';
-    text += '*Parent Name:*\n' + parentName + '\n\n';
-    text += '*Phone Number:*\n' + phoneClean + '\n\n';
-    text += "*Child's Name:*\n" + childName  + '\n\n';
-    text += '*Grade Applying For:*\n' + grade + '\n';
-    if (msg) text += '\n*Message:*\n"' + msg + '"\n';
-    text += '\n' + div + '\n';
-    text += '*Sent:* ' + stamp + '\n';
-    text += '*Via:* Zion Hill School Website';
+    /* ── Beautiful WhatsApp message ── */
+    var line = '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500';
+    var t = '';
+    t += '\uD83C\uDFEB *ZION HILL SCHOOL NGWATA*\n';
+    t += '\uD83D\uDCCB *Admissions Enquiry*\n';
+    t += line + '\n\n';
+    t += '\uD83D\uDC64 *Parent Name*\n' + pName + '\n\n';
+    t += '\uD83D\uDCDE *Phone Number*\n' + ph + '\n\n';
+    t += '\uD83D\uDC76 *Child\'s Name*\n' + cName + '\n\n';
+    t += '\uD83C\uDF93 *Grade Applying For*\n' + grade + '\n';
+    if (msg) { t += '\n\uD83D\uDCAC *Message*\n\u201c' + msg + '\u201d\n'; }
+    t += '\n' + line + '\n';
+    t += '\uD83D\uDCC5 *Date & Time:* ' + buildStamp() + '\n';
+    t += '\uD83C\uDF10 *Source:* Zion Hill School Website';
 
     var btn = document.getElementById('formSubmit');
     if (btn) { btn.textContent = 'Opening WhatsApp...'; btn.disabled = true; }
-
-    window.location.href = 'https://wa.me/254792915655?text=' + encodeURIComponent(text);
+    window.location.href = 'https://wa.me/254721301938?text=' + encodeURIComponent(t);
   });
 
-  form.querySelectorAll('input, select, textarea').forEach(function(el) {
-    el.addEventListener('input',  function() { var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); hideError(); });
-    el.addEventListener('change', function() { var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); hideError(); });
+  form.querySelectorAll('input,select,textarea').forEach(function(el){
+    el.addEventListener('input',  function(){ var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); banner.style.display='none'; });
+    el.addEventListener('change', function(){ var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); banner.style.display='none'; });
   });
+})();
+
+/* ================================================================
+   CONCERNS FORM — toggle + WhatsApp
+   ================================================================ */
+(function() {
+  /* Toggle panel */
+  var toggleBtn = document.getElementById('concernsToggle');
+  var panel     = document.getElementById('concernsPanel');
+  var chevron   = document.getElementById('concernsChevron');
+  if (toggleBtn && panel) {
+    toggleBtn.addEventListener('click', function() {
+      var open = panel.style.display !== 'none';
+      panel.style.display = open ? 'none' : 'block';
+      if (chevron) chevron.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  }
+
+  /* Form submit */
+  var form   = document.getElementById('concernsForm');
+  var banner = document.getElementById('concernsErrorBanner');
+  if (!form || !banner) return;
+
+  function showErr(msg) {
+    banner.innerHTML =
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">' +
+        '<span style="flex:1;">&#9888; <strong>Zion Hill School:</strong> ' + msg + '</span>' +
+        '<button type="button" onclick="this.closest(\'div\').parentNode.style.display=\'none\'" ' +
+          'style="background:rgba(255,255,255,0.25);border:2px solid #fff;color:#fff;font-weight:800;' +
+          'font-size:12px;padding:2px 12px;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;">OK</button>' +
+      '</div>';
+    banner.style.cssText = 'display:block;margin:0 0 16px;padding:12px 14px;background:#dc2626;color:#fff;' +
+      'font-size:14px;font-weight:600;line-height:1.6;border-radius:8px;box-shadow:0 3px 12px rgba(220,38,38,0.3);word-break:break-word;';
+  }
+
+  function validName(v) {
+    var p = v.trim().split(/\s+/);
+    return p.length >= 2 && p.every(function(w){ return w.length >= 2; });
+  }
+
+  function buildStamp() {
+    var now = new Date();
+    var D = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var M = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var h = now.getHours(), mn = now.getMinutes().toString().padStart(2,'0');
+    var ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+    return D[now.getDay()] + ', ' + now.getDate() + ' ' + M[now.getMonth()] + ' ' + now.getFullYear() + ' - ' + h + ':' + mn + ' ' + ap;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    banner.style.display = 'none';
+    form.querySelectorAll('.form-group').forEach(function(g){ g.classList.remove('form-error'); });
+
+    var name  = (form.cName.value||'').trim();
+    var phone = (form.cPhone.value||'').trim();
+    var type  = (form.cType.value||'').trim();
+    var msg   = (form.cMessage.value||'').trim();
+    var ph    = phone.replace(/\s+/g,'');
+
+    var errs = [], emsg = '';
+    if (!name)                           { errs.push('cName'); emsg = 'Your name is required.'; }
+    else if (!validName(name))           { errs.push('cName'); emsg = 'Enter full name — first and last. e.g. Mary Njoki'; }
+    if (!phone)                          { errs.push('cPhone'); if(!emsg) emsg = 'Phone number is required.'; }
+    else if (!/^(07|01)\d{8}$/.test(ph)){ errs.push('cPhone'); if(!emsg) emsg = 'Valid Kenyan number starting with 07 or 01.'; }
+    if (!type)                           { errs.push('cType');  if(!emsg) emsg = 'Please select a message type.'; }
+    if (!msg)                            { errs.push('cMessage'); if(!emsg) emsg = 'Please write your message.'; }
+
+    if (errs.length) {
+      errs.forEach(function(id){ var el=document.getElementById(id); var g=el&&el.closest('.form-group'); if(g) g.classList.add('form-error'); });
+      document.getElementById(errs[0]).focus();
+      showErr(emsg);
+      return;
+    }
+
+    /* ── Beautiful WhatsApp message ── */
+    var line = '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500';
+    var t = '';
+    t += '\uD83C\uDFEB *ZION HILL SCHOOL NGWATA*\n';
+    t += '\uD83D\uDCEC *' + type + '*\n';
+    t += line + '\n\n';
+    t += '\uD83D\uDC64 *From*\n' + name + '\n\n';
+    t += '\uD83D\uDCDE *Phone Number*\n' + ph + '\n\n';
+    t += '\uD83D\uDCAC *Message*\n\u201c' + msg + '\u201d\n';
+    t += '\n' + line + '\n';
+    t += '\uD83D\uDCC5 *Date & Time:* ' + buildStamp() + '\n';
+    t += '\uD83C\uDF10 *Source:* Zion Hill School Website';
+
+    var btn = document.getElementById('concernsSubmit');
+    if (btn) { btn.textContent = 'Opening WhatsApp...'; btn.disabled = true; }
+    window.location.href = 'https://wa.me/254721301938?text=' + encodeURIComponent(t);
+  });
+
+  form.querySelectorAll('input,select,textarea').forEach(function(el){
+    el.addEventListener('input',  function(){ var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); banner.style.display='none'; });
+    el.addEventListener('change', function(){ var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); banner.style.display='none'; });
+  });
+
+  /* Re-init Lucide icons for dynamically shown form */
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function() {
+      setTimeout(function(){ if(window.lucide) lucide.createIcons(); }, 50);
+    });
+  }
 })();
 </script>
 

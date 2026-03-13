@@ -2056,7 +2056,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .footer__container { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.25rem; }
   .footer__bottom-inner { flex-direction: column; text-align: center; }
 }
-/* ── Form validation errors ── */
+/* ── Form error states ── */
 .form-group.form-error .form-input-wrap input,
 .form-group.form-error .form-input-wrap select,
 .form-group.form-error textarea {
@@ -2071,3 +2071,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   25%     { transform: translateX(-5px); }
   75%     { transform: translateX(5px); }
 }
+
+/* ── Concerns toggle button ── */
+.concerns__toggle {
+  display: flex; align-items: center; gap: 0.6rem;
+  width: 100%; padding: 0.85rem 1.25rem;
+  background: rgba(164, 173, 180, 0.12);
+  border: 2px dashed var(--light-blue, #5DA9E9);
+  border-radius: 10px;
+  color: var(--deep-blue, #0D3B66);
+  font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+}
+.concerns__toggle:hover {
+  background: rgba(93,169,233,0.22);
+  border-color: var(--deep-blue, #0D3B66);
+}
+.concerns__toggle svg:first-child { color: var(--gold, #F4B400); flex-shrink:0; }
+.concerns__toggle svg:last-child  { margin-left: auto; flex-shrink:0; }
