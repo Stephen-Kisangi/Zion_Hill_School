@@ -337,10 +337,7 @@
   </section>
 
   <!-- PLACEHOLDER SECTIONS -->
-  <!-- =============================================
-     SECTION 2: WHY CHOOSE ZION HILL
-     PLACEMENT: Replace the placeholder <section id="about"> in index.html
-     ============================================= -->
+  
 <section id="about" class="why">
   <div class="why__container">
 
@@ -447,13 +444,7 @@
   </div>
 </section>
 
-
-
-
- <!-- =============================================
-     SECTION 3: CBC CURRICULUM
-     PLACEMENT: Replace the placeholder <section id="cbc"> in index.html
-     ============================================= -->
+ 
 <section id="cbc" class="cbc">
 
   <!-- Diagonal background shape -->
@@ -558,12 +549,6 @@
   </div><!-- /.cbc__container -->
 </section>
 
-
-
-<!-- =============================================
-     SECTION 4: CLASSES
-     PLACEMENT: Replace the placeholder <section id="classes"> in index.html
-     ============================================= -->
 <section id="classes" class="classes">
   <div class="classes__container">
 
@@ -714,12 +699,6 @@
   </div>
 </section>
 
-
-<!-- =============================================
-     SECTION 5: TESTIMONIALS
-     PLACEMENT: Replace the placeholder <section id="admissions"> in index.html
-     Wait — place this BEFORE admissions. Insert after classes section.
-     ============================================= -->
 <section id="testimonials" class="testi">
   <div class="testi__container">
 
@@ -845,16 +824,6 @@
   </div>
 </section>
 
-
-
-
-
-
-
-<!-- =============================================
-     SECTION 6: GALLERY
-     PLACEMENT: Replace the placeholder <section id="gallery"> in index.html
-     ============================================= -->
 <section id="gallery" class="gallery">
   <div class="gallery__container">
 
@@ -937,11 +906,6 @@
   </div>
 </section>
 
-
-<!-- =============================================
-     SECTION 7: ADMISSIONS
-     PLACEMENT: Replace the placeholder <section id="admissions"> in index.html
-     ============================================= -->
 <section id="admissions" class="admissions">
   <div class="admissions__bg-shape"></div>
 
@@ -1022,6 +986,7 @@
         <p class="admissions__form-sub">We reply within a few hours during school days</p>
 
         <form class="admissions__form" id="admissionsForm" novalidate>
+          <div id="formErrorBanner" style="display:none;"></div>
 
           <div class="form-group">
             <label for="parentName">Parent / Guardian Name *</label>
@@ -1090,129 +1055,123 @@
   </div><!-- /.admissions__container -->
 </section>
 
+<script>
+(function() {
+  var form   = document.getElementById('admissionsForm');
+  var banner = document.getElementById('formErrorBanner');
+  if (!form || !banner) return;
 
+  function showError(msg) {
+    banner.innerHTML =
+      '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">' +
+        '<span style="flex:1;min-width:0;">&#9888; <strong>Zion Hill School:</strong> ' + msg + '</span>' +
+        '<button type="button" onclick="this.parentNode.parentNode.style.display=\'none\'" ' +
+          'style="background:rgba(255,255,255,0.3);border:2px solid #fff;color:#fff;' +
+          'font-weight:800;font-size:13px;padding:3px 14px;border-radius:5px;cursor:pointer;white-space:nowrap;flex-shrink:0;">' +
+          'OK' +
+        '</button>' +
+      '</div>';
+    banner.style.cssText =
+      'display:block !important;' +
+      'margin:0 0 18px 0;' +
+      'padding:12px 14px;' +
+      'background:#dc2626;' +
+      'color:#fff;' +
+      'font-size:14px;' +
+      'font-weight:600;' +
+      'line-height:1.6;' +
+      'border-radius:8px;' +
+      'box-shadow:0 3px 12px rgba(220,38,38,0.35);' +
+      'word-break:break-word;';
+  }
 
- <!-- =============================================
-     SECTION 8: CONTACT
-     PLACEMENT: Replace the placeholder <section id="contact"> in index.html
-     ============================================= -->
-<section id="contact" class="contact">
-  <div class="contact__container">
+  function hideError() {
+    banner.style.display = 'none';
+  }
 
-    <div class="contact__header anim-item">
-      <span class="section-label">
-        <i data-lucide="map-pin" class="section-label__icon"></i>
-        Find Us
-      </span>
-      <h2 class="contact__title">
-        We Are Right Here in<br/>
-        <span class="contact__title-accent">Mlolongo Phase 3</span>
-      </h2>
-    </div>
+  function validName(val) {
+    var parts = val.trim().split(/\s+/);
+    return parts.length >= 2 && parts.every(function(p) { return p.length >= 2; });
+  }
 
-    <div class="contact__body">
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    hideError();
+    form.querySelectorAll('.form-group').forEach(function(g) { g.classList.remove('form-error'); });
 
-      <!-- Left: contact details -->
-      <div class="contact__details">
+    var parentName = (form.parentName.value || '').trim();
+    var phone      = (form.phone.value      || '').trim();
+    var childName  = (form.childName.value  || '').trim();
+    var grade      = (form.gradeApply.value || '').trim();
+    var msg        = (form.message.value    || '').trim();
+    var phoneClean = phone.replace(/\s+/g, '');
 
-        <div class="contact__detail-item anim-item">
-          <div class="contact__detail-icon contact__detail-icon--blue">
-            <i data-lucide="map-pin"></i>
-          </div>
-          <div>
-            <strong>Our Location</strong>
-            <span>Mlolongo Phase 3, Machakos County<br/>Near Nairobi — Easy access from the SGR road</span>
-          </div>
-        </div>
+    var errors = [], errorMsg = '';
 
-        <div class="contact__detail-item anim-item">
-          <div class="contact__detail-icon contact__detail-icon--gold">
-            <i data-lucide="phone"></i>
-          </div>
-          <div>
-            <strong>Call Us</strong>
-            <a href="tel:+254721301938">0721 301938</a>
-            <span>Monday – Friday, 7:30am – 5:00pm</span>
-          </div>
-        </div>
+    if (!parentName) {
+      errors.push('parentName'); errorMsg = 'Parent name is required.';
+    } else if (!validName(parentName)) {
+      errors.push('parentName'); errorMsg = 'Enter full name — first and last name. e.g. Mary Njoki';
+    }
+    if (!phone) {
+      errors.push('phone'); if (!errorMsg) errorMsg = 'Phone number is required.';
+    } else if (!/^(07|01)\d{8}$/.test(phoneClean)) {
+      errors.push('phone'); if (!errorMsg) errorMsg = 'Enter a valid Kenyan number starting with 07 or 01. e.g. 0721 301938';
+    }
+    if (!childName) {
+      errors.push('childName'); if (!errorMsg) errorMsg = "Child name is required.";
+    } else if (!validName(childName)) {
+      errors.push('childName'); if (!errorMsg) errorMsg = "Enter child full name — first and last name. e.g. John Mwangi";
+    }
+    if (!grade) {
+      errors.push('gradeApply'); if (!errorMsg) errorMsg = 'Please select a grade.';
+    }
 
-        <div class="contact__detail-item anim-item">
-          <div class="contact__detail-icon contact__detail-icon--green">
-            <i data-lucide="message-circle"></i>
-          </div>
-          <div>
-            <strong>WhatsApp</strong>
-            <a href="https://wa.me/254721301938" target="_blank">Chat with us on WhatsApp</a>
-            <span>Fastest way to reach us — quick replies</span>
-          </div>
-        </div>
+    if (errors.length) {
+      errors.forEach(function(id) {
+        var el = document.getElementById(id);
+        var grp = el && el.closest('.form-group');
+        if (grp) grp.classList.add('form-error');
+      });
+      document.getElementById(errors[0]).focus();
+      showError(errorMsg);
+      return;
+    }
 
-        <div class="contact__detail-item anim-item">
-          <div class="contact__detail-icon contact__detail-icon--teal">
-            <i data-lucide="clock"></i>
-          </div>
-          <div>
-            <strong>School Hours</strong>
-            <span>Mon – Fri: 7:30am – 4:30pm<br/>Saturday: Closed &nbsp;·&nbsp; Sunday: Closed</span>
-          </div>
-        </div>
+    /* Timestamp */
+    var now = new Date();
+    var DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var h = now.getHours(), mn = now.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+    var stamp = DAYS[now.getDay()] + ', ' + now.getDate() + ' ' + MONTHS[now.getMonth()] + ' ' + now.getFullYear() + ' - ' + h + ':' + mn + ' ' + ampm;
 
-        <!-- Quick actions -->
-        <div class="contact__quick-actions anim-item">
-          <a href="tel:+254721301938" class="contact__quick-btn contact__quick-btn--call">
-            <i data-lucide="phone"></i>
-            Call Now
-          </a>
-          <a href="https://wa.me/254721301938?text=Hello%20Zion%20Hill%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" class="contact__quick-btn contact__quick-btn--wa">
-            <i data-lucide="message-circle"></i>
-            WhatsApp Us
-          </a>
-          <a href="#admissions" class="contact__quick-btn contact__quick-btn--enroll">
-            <i data-lucide="user-plus"></i>
-            Enroll
-          </a>
-        </div>
+    /* WhatsApp message */
+    var div = '==========================';
+    var text = '*ZION HILL SCHOOL*\n*ADMISSIONS ENQUIRY*\n' + div + '\n\n';
+    text += '*Parent Name:*\n' + parentName + '\n\n';
+    text += '*Phone Number:*\n' + phoneClean + '\n\n';
+    text += "*Child's Name:*\n" + childName  + '\n\n';
+    text += '*Grade Applying For:*\n' + grade + '\n';
+    if (msg) text += '\n*Message:*\n"' + msg + '"\n';
+    text += '\n' + div + '\n';
+    text += '*Sent:* ' + stamp + '\n';
+    text += '*Via:* Zion Hill School Website';
 
-      </div><!-- /.contact__details -->
+    var btn = document.getElementById('formSubmit');
+    if (btn) { btn.textContent = 'Opening WhatsApp...'; btn.disabled = true; }
 
-      <!-- Right: embedded map -->
-      <div class="contact__map-wrap anim-item">
-        <div class="contact__map-frame">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d36.97!3d-1.38!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMlolongo+Phase+3!5e0!3m2!1sen!2ske!4v1"
-            width="100%" height="100%"
-            style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Zion Hill School Ngwata location map">
-          </iframe>
-        </div>
-        <div class="contact__map-badge">
-          <i data-lucide="map-pin"></i>
-          Mlolongo Phase 3, Nairobi
-        </div>
-      </div>
+    window.location.href = 'https://wa.me/254792915655?text=' + encodeURIComponent(text);
+  });
 
-    </div><!-- /.contact__body -->
+  form.querySelectorAll('input, select, textarea').forEach(function(el) {
+    el.addEventListener('input',  function() { var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); hideError(); });
+    el.addEventListener('change', function() { var g=el.closest('.form-group'); if(g) g.classList.remove('form-error'); hideError(); });
+  });
+})();
+</script>
 
-  </div>
-</section>
-
-<!-- =============================================
-     FLOATING WHATSAPP BUTTON
-     ============================================= -->
-<a href="https://wa.me/254721301938?text=Hello%20Zion%20Hill%20School%2C%20I%20would%20like%20to%20enquire%20about%20admissions."
-   target="_blank"
-   class="whatsapp-float"
-   aria-label="Chat on WhatsApp">
-  <i data-lucide="message-circle" class="whatsapp-float__icon"></i>
-  <span class="whatsapp-float__label">Chat with us</span>
-  <span class="whatsapp-float__pulse"></span>
-</a>
-
-<!-- =============================================
-     SECTION 8: CONTACT
-     PLACEMENT: Replace the placeholder <section id="contact"> in index.html
-     ============================================= -->
 <section id="contact" class="contact">
   <div class="contact__container">
 

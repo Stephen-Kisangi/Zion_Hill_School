@@ -2056,3 +2056,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .footer__container { grid-template-columns: 1fr; gap: 2rem; padding: 0 1.25rem; }
   .footer__bottom-inner { flex-direction: column; text-align: center; }
 }
+/* ── Form validation errors ── */
+.form-group.form-error .form-input-wrap input,
+.form-group.form-error .form-input-wrap select,
+.form-group.form-error textarea {
+  border-color: #ef4444 !important;
+  background: #fff5f5 !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important;
+  animation: formShake 0.35s ease;
+}
+.form-group.form-error label { color: #dc2626 !important; font-weight: 700; }
+@keyframes formShake {
+  0%,100% { transform: translateX(0); }
+  25%     { transform: translateX(-5px); }
+  75%     { transform: translateX(5px); }
+}
