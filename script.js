@@ -311,6 +311,9 @@
     initParticles();
     initCounters();
     initTestiSlider();
+    initCBCExplorer();
+    initShowcaseStats();
+    initHeroVideo();
     initFooterYear();
   });
 
@@ -404,6 +407,87 @@
   /* =========================================================
      ADMISSIONS FORM — composes & opens WhatsApp message
      ========================================================= */
+
+  /* =========================================================
+     CBC EXPLORER — tab switcher
+     ========================================================= */
+  function initCBCExplorer() {
+    const tabs = document.querySelectorAll('.cbc-tab');
+    if (!tabs.length) return;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.cbc-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById('tab-' + tab.dataset.tab);
+        if (panel) panel.classList.add('active');
+        if (window.lucide) lucide.createIcons();
+      });
+    });
+  }
+
+  /* =========================================================
+     SHOWCASE STATS — animated counters
+     ========================================================= */
+  function initShowcaseStats() {
+    const els = document.querySelectorAll('.showcase__stat-num[data-count]');
+    if (!els.length || !window.IntersectionObserver) {
+      els.forEach(el => { el.textContent = el.dataset.count; });
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el  = entry.target;
+        const end = parseInt(el.dataset.count);
+        let cur = 0;
+        const step = end / 40;
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= end) { cur = end; clearInterval(t); }
+          el.textContent = Math.floor(cur);
+        }, 30);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    els.forEach(el => io.observe(el));
+  }
+
+  /* =========================================================
+     HERO VIDEO MODAL
+     To use your own video, replace the heroVideoSrc value below
+     with: 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1'
+     ========================================================= */
+  function initHeroVideo() {
+    const btn      = document.getElementById('heroVideoBtn');
+    const modal    = document.getElementById('heroVideoModal');
+    const frame    = document.getElementById('heroVideoFrame');
+    const closeBtn = document.getElementById('videoClose');
+    const backdrop = document.getElementById('videoBackdrop');
+    if (!btn || !modal || !frame) return;
+
+    /* ── REPLACE THIS VIDEO ID WITH YOUR OWN WHEN READY ── */
+    const heroVideoSrc = 'https://www.youtube.com/embed/X3icpovXqEc?autoplay=1&rel=0&modestbranding=1';
+
+    function openModal() {
+      frame.src = heroVideoSrc;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      if (window.lucide) lucide.createIcons();
+    }
+    function closeModal() {
+      modal.style.display = 'none';
+      frame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', openModal);
+    if (closeBtn)  closeBtn.addEventListener('click', closeModal);
+    if (backdrop)  backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
+    });
+  }
 
   /* =========================================================
      FOOTER YEAR

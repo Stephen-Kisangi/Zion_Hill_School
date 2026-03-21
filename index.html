@@ -327,6 +327,47 @@
           <div class="hero__card-icon hero__card-icon--green"><i data-lucide="users"></i></div>
           <div class="hero__card-text"><strong>Qualified Teachers</strong><span>Caring & experienced staff</span></div>
         </div>
+
+        <!-- VIDEO CARD -->
+        <div class="hero__video-card anim-item">
+          <button class="hero__video-btn" id="heroVideoBtn" aria-label="Watch school life video">
+            <div class="hero__video-preview">
+              <div class="hero__video-scene">
+                <div class="hero__kid hero__kid--1"><div class="kid-body"></div><div class="kid-head"></div><div class="kid-book"></div></div>
+                <div class="hero__kid hero__kid--2"><div class="kid-body"></div><div class="kid-head"></div><div class="kid-pencil"></div></div>
+                <div class="hero__kid hero__kid--3"><div class="kid-body"></div><div class="kid-head"></div><div class="kid-hand"></div></div>
+                <div class="hero__video-desk"></div>
+                <div class="hero__video-board"><span>A + B = C</span><div class="board-line"></div></div>
+              </div>
+              <div class="hero__video-play">
+                <i data-lucide="play" style="width:22px;height:22px;margin-left:3px;"></i>
+              </div>
+            </div>
+            <div class="hero__video-label">
+              <i data-lucide="film" style="width:14px;height:14px;"></i>
+              Watch Our School Life
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VIDEO MODAL -->
+    <div id="heroVideoModal" class="video-modal" style="display:none;">
+      <div class="video-modal__backdrop" id="videoBackdrop"></div>
+      <div class="video-modal__box">
+        <button class="video-modal__close" id="videoClose" aria-label="Close">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="video-modal__frame">
+          <iframe id="heroVideoFrame" src="" frameborder="0"
+            allow="autoplay; encrypted-media; fullscreen" allowfullscreen>
+          </iframe>
+        </div>
+        <p class="video-modal__caption">
+          Replace video ID in script.js when ready — search for <strong>heroVideoSrc</strong>
+        </p>
       </div>
     </div>
 
@@ -549,6 +590,114 @@
   </div><!-- /.cbc__container -->
 </section>
 
+<!-- =============================================
+     CBC SUBJECTS EXPLORER
+     ============================================= -->
+<section class="cbc-explorer">
+  <div class="cbc-explorer__inner">
+    <div class="cbc-explorer__header anim-item">
+      <span class="section-label"><i data-lucide="layers" class="section-label__icon"></i>Curriculum</span>
+      <h2 class="cbc-explorer__title">Explore <span class="text-gold">CBC Subjects</span></h2>
+      <p class="cbc-explorer__sub">Tap any subject to see what your child will learn</p>
+    </div>
+    <div class="cbc-explorer__tabs anim-item">
+      <button class="cbc-tab active" data-tab="literacy"><i data-lucide="book-open"></i> Literacy</button>
+      <button class="cbc-tab" data-tab="numeracy"><i data-lucide="calculator"></i> Numeracy</button>
+      <button class="cbc-tab" data-tab="science"><i data-lucide="zap"></i> Science</button>
+      <button class="cbc-tab" data-tab="creative"><i data-lucide="palette"></i> Creative Arts</button>
+      <button class="cbc-tab" data-tab="social"><i data-lucide="globe"></i> Social Studies</button>
+      <button class="cbc-tab" data-tab="pe"><i data-lucide="activity"></i> PE &amp; Health</button>
+    </div>
+    <div class="cbc-explorer__panel anim-item">
+
+      <div class="cbc-panel active" id="tab-literacy">
+        <div class="cbc-panel__icon"><i data-lucide="book-open"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Literacy &amp; Language</h3>
+          <p>Children develop strong reading, writing and communication skills in both English and Kiswahili. Through storytelling, phonics and creative writing they build a lifelong love for language.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Reading &amp; Phonics</li>
+            <li><i data-lucide="check-circle"></i> Creative Writing</li>
+            <li><i data-lucide="check-circle"></i> Oral Communication</li>
+            <li><i data-lucide="check-circle"></i> Kiswahili Language</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cbc-panel" id="tab-numeracy">
+        <div class="cbc-panel__icon"><i data-lucide="calculator"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Mathematics &amp; Numeracy</h3>
+          <p>Practical, real-world mathematics that makes numbers fun. Children learn through games, manipulatives and problem-solving that build strong logical thinking.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Number Sense &amp; Operations</li>
+            <li><i data-lucide="check-circle"></i> Geometry &amp; Measurement</li>
+            <li><i data-lucide="check-circle"></i> Data Handling</li>
+            <li><i data-lucide="check-circle"></i> Problem Solving</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cbc-panel" id="tab-science">
+        <div class="cbc-panel__icon"><i data-lucide="zap"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Science &amp; Technology</h3>
+          <p>Curiosity-driven exploration of the natural world. Children conduct simple experiments, observe nature and learn how technology shapes everyday life.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Living Things &amp; Environment</li>
+            <li><i data-lucide="check-circle"></i> Matter &amp; Energy</li>
+            <li><i data-lucide="check-circle"></i> Simple Experiments</li>
+            <li><i data-lucide="check-circle"></i> Basic Digital Literacy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cbc-panel" id="tab-creative">
+        <div class="cbc-panel__icon"><i data-lucide="palette"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Creative Arts &amp; Crafts</h3>
+          <p>Every child is an artist. Through drawing, painting, music, drama and craft, children express themselves and build confidence and emotional intelligence.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Visual Arts &amp; Drawing</li>
+            <li><i data-lucide="check-circle"></i> Music &amp; Rhythm</li>
+            <li><i data-lucide="check-circle"></i> Drama &amp; Role Play</li>
+            <li><i data-lucide="check-circle"></i> Craft &amp; Design</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cbc-panel" id="tab-social">
+        <div class="cbc-panel__icon"><i data-lucide="globe"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Social Studies &amp; CRE</h3>
+          <p>Building great citizens. Children learn about Kenya, their community, culture and values — rooted in Kenyan identity and Christian faith.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Kenyan History &amp; Culture</li>
+            <li><i data-lucide="check-circle"></i> Community &amp; Environment</li>
+            <li><i data-lucide="check-circle"></i> Christian Religious Education</li>
+            <li><i data-lucide="check-circle"></i> Citizenship &amp; Values</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cbc-panel" id="tab-pe">
+        <div class="cbc-panel__icon"><i data-lucide="activity"></i></div>
+        <div class="cbc-panel__content">
+          <h3>Physical Education &amp; Health</h3>
+          <p>Active, healthy, happy children. Regular PE, sports and health education build physical fitness, teamwork and healthy habits for life.</p>
+          <ul class="cbc-panel__skills">
+            <li><i data-lucide="check-circle"></i> Sports &amp; Athletics</li>
+            <li><i data-lucide="check-circle"></i> Games &amp; Teamwork</li>
+            <li><i data-lucide="check-circle"></i> Personal Hygiene</li>
+            <li><i data-lucide="check-circle"></i> Health &amp; Nutrition</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="classes" class="classes">
   <div class="classes__container">
 
@@ -693,6 +842,91 @@
           <span class="btn-text">Apply Now</span>
           <span class="btn-shine"></span>
         </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     SCHOOL LIFE SHOWCASE
+     ============================================= -->
+<section class="showcase">
+  <div class="showcase__inner">
+    <div class="showcase__header anim-item">
+      <span class="section-label"><i data-lucide="camera" class="section-label__icon"></i>School Life</span>
+      <h2 class="showcase__title">A Day at <span class="text-gold">Zion Hill</span></h2>
+      <p class="showcase__sub">Where every child is seen, heard and celebrated</p>
+    </div>
+
+    <!-- Video embed — replace VIDEO_ID with your YouTube video ID -->
+    <div class="showcase__video-wrap anim-item">
+      <iframe
+        src="https://www.youtube.com/embed/X3icpovXqEc?autoplay=1&mute=1&loop=1&controls=1&modestbranding=1&rel=0"
+        title="Zion Hill School Life"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        class="showcase__iframe">
+      </iframe>
+      <div class="showcase__video-placeholder">
+        <i data-lucide="play-circle" style="width:56px;height:56px;color:#F4B400;"></i>
+        <p>Add your school video — replace VIDEO_ID in index.html</p>
+      </div>
+    </div>
+
+    <!-- Activity cards -->
+    <div class="showcase__cards anim-item">
+      <div class="showcase__card" data-delay="0">
+        <div class="showcase__card-icon" style="background:rgba(244,180,0,0.15);">
+          <i data-lucide="book-open" style="color:#F4B400;"></i>
+        </div>
+        <h4>Active Learning</h4>
+        <p>Hands-on CBC activities that make every lesson exciting and memorable.</p>
+      </div>
+      <div class="showcase__card" data-delay="100">
+        <div class="showcase__card-icon" style="background:rgba(93,169,233,0.15);">
+          <i data-lucide="music" style="color:#5DA9E9;"></i>
+        </div>
+        <h4>Arts &amp; Music</h4>
+        <p>Creative expression through drama, art and music every week.</p>
+      </div>
+      <div class="showcase__card" data-delay="200">
+        <div class="showcase__card-icon" style="background:rgba(34,197,94,0.15);">
+          <i data-lucide="users" style="color:#22c55e;"></i>
+        </div>
+        <h4>Team Play</h4>
+        <p>Sports and group activities that build confidence and teamwork.</p>
+      </div>
+      <div class="showcase__card" data-delay="300">
+        <div class="showcase__card-icon" style="background:rgba(168,85,247,0.15);">
+          <i data-lucide="star" style="color:#a855f7;"></i>
+        </div>
+        <h4>Recognition</h4>
+        <p>Every child's achievement celebrated — big or small.</p>
+      </div>
+    </div>
+
+    <!-- Animated stats -->
+    <div class="showcase__stats anim-item">
+      <div class="showcase__stat">
+        <span class="showcase__stat-num" data-count="320">0</span><span class="showcase__stat-plus">+</span>
+        <span class="showcase__stat-label">Happy Pupils</span>
+      </div>
+      <div class="showcase__stat-div"></div>
+      <div class="showcase__stat">
+        <span class="showcase__stat-num" data-count="18">0</span><span class="showcase__stat-plus">+</span>
+        <span class="showcase__stat-label">Qualified Teachers</span>
+      </div>
+      <div class="showcase__stat-div"></div>
+      <div class="showcase__stat">
+        <span class="showcase__stat-num" data-count="9">0</span><span class="showcase__stat-plus"></span>
+        <span class="showcase__stat-label">Grade Levels</span>
+      </div>
+      <div class="showcase__stat-div"></div>
+      <div class="showcase__stat">
+        <span class="showcase__stat-num" data-count="100">0</span><span class="showcase__stat-plus">%</span>
+        <span class="showcase__stat-label">CBC Compliant</span>
       </div>
     </div>
 
