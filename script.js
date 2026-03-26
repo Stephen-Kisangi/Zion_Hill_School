@@ -455,8 +455,8 @@
 
   /* =========================================================
      HERO VIDEO MODAL
-     To use your own video, replace the heroVideoSrc value below
-     with: 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1'
+     To use your own video: replace eVKPFCd7b4c in heroVideoSrc below
+     with your YouTube video ID. Make sure embedding is ON in YouTube Studio.
      ========================================================= */
   function initHeroVideo() {
     const btn      = document.getElementById('heroVideoBtn');
@@ -467,7 +467,7 @@
     if (!btn || !modal || !frame) return;
 
     /* ── REPLACE THIS VIDEO ID WITH YOUR OWN WHEN READY ── */
-    const heroVideoSrc = 'https://www.youtube.com/embed/X3icpovXqEc?autoplay=1&rel=0&modestbranding=1';
+    const heroVideoSrc = 'https://www.youtube.com/embed/eVKPFCd7b4c?autoplay=1&rel=0&modestbranding=1&playsinline=1';
 
     function openModal() {
       frame.src = heroVideoSrc;
